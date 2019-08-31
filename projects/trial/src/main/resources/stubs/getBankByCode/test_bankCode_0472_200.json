@@ -1,0 +1,19 @@
+{
+  "priority": 99,
+  "request": {
+    "method": "GET",
+    "url": "/v1/getBankInfoByCode?bankCode=0472"
+  },
+  "response": {
+    "status": 200,
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "jsonBody": {
+      "bankCode": "0472",
+      "bankName": "ＳＢＪ銀行",
+      "bankNameKana": "エスビ－ジエ－ギンコウ",
+      "walletFlg": "0"
+    }
+  }
+}

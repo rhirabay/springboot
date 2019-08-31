@@ -1,0 +1,19 @@
+{
+  "priority": 99,
+  "request": {
+    "method": "GET",
+    "url": "/v1/getBankInfoByCode?bankCode=9900"
+  },
+  "response": {
+    "status": 200,
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "jsonBody": {
+      "bankCode": "9900",
+      "bankName": "ゆうちょ銀行",
+      "bankNameKana": "ユウチョギンコウ",
+      "walletFlg": "1"
+    }
+  }
+}

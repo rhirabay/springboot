@@ -1,0 +1,17 @@
+{
+  "priority": 91,
+  "request": {
+    "method": "GET",
+    "url": "/v1/getBankBranchInfoByCode?bankCode=0004&bankBranchCode=004&listCode=1&walletFlg=0"
+  },
+  "response": {
+    "status": 404,
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "jsonBody": {
+      "errorCode": "4000",
+      "errorMessage": "The BankMaster not found"
+    }
+  }
+}

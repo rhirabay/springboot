@@ -1,0 +1,17 @@
+{
+  "priority": 92,
+  "request": {
+    "method": "GET",
+    "url": "/v1/getBankBranchInfoByCode?bankCode=0005&bankBranchCode=005&listCode=1&walletFlg=1"
+  },
+  "response": {
+    "status": 400,
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "jsonBody": {
+      "errorCode": "1000",
+      "errorMessage": "bankmaster parameter invalid"
+    }
+  }
+}

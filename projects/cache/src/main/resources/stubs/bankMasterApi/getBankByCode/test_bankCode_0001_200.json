@@ -1,0 +1,19 @@
+{
+  "priority": 99,
+  "request": {
+    "method": "GET",
+    "url": "/v1/getBankInfoByCode?bankCode=0001"
+  },
+  "response": {
+    "status": 200,
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "jsonBody": {
+      "bankCode": "0001",
+      "bankName": "みずほ銀行",
+      "bankNameKana": "ミズホギンコウ",
+      "walletFlg": "1"
+    }
+  }
+}

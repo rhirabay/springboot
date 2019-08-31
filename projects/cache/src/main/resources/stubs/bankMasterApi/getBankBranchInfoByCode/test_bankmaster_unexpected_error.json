@@ -1,0 +1,17 @@
+{
+  "priority": 92,
+  "request": {
+    "method": "GET",
+    "url": "/v1/getBankBranchInfoByCode?bankCode=0006&bankBranchCode=006&listCode=1&walletFlg=1"
+  },
+  "response": {
+    "status": 500,
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "jsonBody": {
+      "errorCode": "9000",
+      "errorMessage": "System error"
+    }
+  }
+}

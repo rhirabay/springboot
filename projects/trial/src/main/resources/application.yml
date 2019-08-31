@@ -1,0 +1,13 @@
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "prometheus,beans"
+      base-path: "/"
+  server:
+    port: 9990
+
+wiremock:
+  server:
+    port: 9091
+    stubs: "classpath:/stubs"
