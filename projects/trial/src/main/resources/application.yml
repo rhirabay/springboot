@@ -11,3 +11,7 @@ wiremock:
   server:
     port: 9091
     stubs: "classpath:/stubs"
+
+logging:
+  level:
+    root: DEBUG

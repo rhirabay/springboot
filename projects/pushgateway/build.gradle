@@ -1,0 +1,9 @@
+apply plugin: 'java'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile('io.prometheus:simpleclient_pushgateway:0.6.0')
+}
