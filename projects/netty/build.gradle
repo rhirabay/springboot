@@ -1,6 +1,6 @@
 buildscript {
     ext {
-        springBootVersion = '2.2.1.RELEASE'
+        springBootVersion = '2.1.1.RELEASE'
     }
     repositories {
         mavenCentral()
@@ -14,6 +14,9 @@ apply plugin: 'java'
 apply plugin: 'org.springframework.boot'
 apply plugin: 'io.spring.dependency-management'
 
+group 'rhirabay'
+version '1.0.0'
+
 sourceCompatibility = 11
 targetCompatibility = 11
 
@@ -25,8 +28,11 @@ repositories {
 }
 
 dependencies {
-    compile group: 'org.springframework.boot', name: 'spring-boot-starter-web', version: '2.2.1.RELEASE'
-    compile group: 'org.springframework.boot', name: 'spring-boot-starter', version: '2.2.1.RELEASE'
+    compile('org.springframework.boot:spring-boot-starter-webflux')
     compileOnly('org.projectlombok:lombok')
+    compile("com.ibm.icu:icu4j:57.1")
+    compile('org.springframework.boot:spring-boot-actuator')
+    compile('org.springframework.boot:spring-boot-actuator-autoconfigure')
+    compile('io.micrometer:micrometer-registry-prometheus')
     annotationProcessor('org.projectlombok:lombok')
 }

@@ -5,4 +5,7 @@ include ':projects:trial',
         ':projects:pushgateway',
         ':projects:rsocket',
         ':projects:kafka',
+        ':projects:netty',
+        ':projects:springcloudconfigserver',
+        ':projects:springcloudconfigclient',
         ':projects:template'
