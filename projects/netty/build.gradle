@@ -29,10 +29,14 @@ repositories {
 
 dependencies {
     compile('org.springframework.boot:spring-boot-starter-webflux')
-    compileOnly('org.projectlombok:lombok')
     compile("com.ibm.icu:icu4j:57.1")
     compile('org.springframework.boot:spring-boot-actuator')
     compile('org.springframework.boot:spring-boot-actuator-autoconfigure')
     compile('io.micrometer:micrometer-registry-prometheus')
+    compileOnly('org.projectlombok:lombok')
     annotationProcessor('org.projectlombok:lombok')
+
+    // https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-thymeleaf
+    compile group: 'org.springframework.boot', name: 'spring-boot-starter-thymeleaf', version: '2.2.2.RELEASE'
+
 }
