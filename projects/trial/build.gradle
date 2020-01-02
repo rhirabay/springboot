@@ -28,7 +28,6 @@ repositories {
 
 dependencies {
     compile('org.springframework.boot:spring-boot-starter-web')
-    compileOnly('org.projectlombok:lombok')
     compile("com.ibm.icu:icu4j:57.1")
     compile('org.springframework.cloud:spring-cloud-contract-wiremock:2.+')
     compile('org.springframework.boot:spring-boot-actuator')
@@ -37,6 +36,8 @@ dependencies {
 //    compile('io.projectreactor.ipc:reactor-netty')
     compile('org.springframework.boot:spring-boot-starter-reactor-netty')
     compile('org.springframework.boot:spring-boot-starter-webflux')
+    
+    compileOnly('org.projectlombok:lombok')
     annotationProcessor('org.projectlombok:lombok')
 
     testCompile('org.junit.jupiter:junit-jupiter-api')

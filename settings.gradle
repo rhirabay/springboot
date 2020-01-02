@@ -7,6 +7,7 @@ include ':projects:trial',
         ':projects:rsocketclient',
         ':projects:kafka',
         ':projects:netty',
+        ':projects:r2dbc',
         ':projects:springcloudconfigserver',
         ':projects:springcloudconfigclient',
         ':projects:template'
