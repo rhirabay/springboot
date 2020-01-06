@@ -10,4 +10,5 @@ include ':projects:trial',
         ':projects:r2dbc',
         ':projects:springcloudconfigserver',
         ':projects:springcloudconfigclient',
+        ':projects:springcloudfunction',
         ':projects:springcloudgateway'
