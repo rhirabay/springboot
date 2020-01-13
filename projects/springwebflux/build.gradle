@@ -1,6 +1,6 @@
 buildscript {
     ext {
-        springBootVersion = '2.1.1.RELEASE'
+        springBootVersion = '2.2.1.RELEASE'
     }
     repositories {
         mavenCentral()
@@ -14,9 +14,6 @@ apply plugin: 'java'
 apply plugin: 'org.springframework.boot'
 apply plugin: 'io.spring.dependency-management'
 
-group 'rhirabay'
-version '1.0.0'
-
 sourceCompatibility = 11
 targetCompatibility = 11
 
@@ -28,16 +25,13 @@ repositories {
 }
 
 dependencies {
-    compile('org.springframework.boot:spring-boot-starter-webflux')
-    compile("com.ibm.icu:icu4j:57.1")
+    compileOnly('org.projectlombok:lombok')
+    annotationProcessor('org.projectlombok:lombok')
+    
+    compile group: 'org.springframework.boot', name: 'spring-boot-starter-webflux', version: '2.2.1.RELEASE'
     compile('org.springframework.boot:spring-boot-actuator')
     compile('org.springframework.boot:spring-boot-actuator-autoconfigure')
     compile('io.micrometer:micrometer-registry-prometheus')
-    compile('org.eclipse.jetty:jetty-reactive-httpclient')
     compileOnly('org.projectlombok:lombok')
     annotationProcessor('org.projectlombok:lombok')
-
-    // https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-thymeleaf
-    compile group: 'org.springframework.boot', name: 'spring-boot-starter-thymeleaf', version: '2.2.2.RELEASE'
-
 }
