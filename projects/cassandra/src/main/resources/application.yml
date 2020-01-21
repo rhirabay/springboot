@@ -1,0 +1,17 @@
+logging:
+  level:
+    root: info
+
+spring:
+  data:
+    cassandra:
+      keyspace-name: sample
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "prometheus,info,beans"
+      base-path: "/"
+  server:
+    port: 9990

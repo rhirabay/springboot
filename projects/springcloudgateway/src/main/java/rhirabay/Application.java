@@ -24,7 +24,7 @@ public class Application {
                 .route("path_route", r ->
                         r.path("/path")
                                 .filters(f -> f.prefixPath("/api"))
-                                .uri("http://localhost:18080"))
+                                .uri("http://localhost:8080"))
                 .build();
     }
 
