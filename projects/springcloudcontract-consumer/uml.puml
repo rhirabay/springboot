@@ -1,0 +1,11 @@
+@startuml
+
+participant consumer as c
+participant producer as p
+
+-> c
+c -> p
+p --> c
+<-- c
+
+@enduml

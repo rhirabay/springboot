@@ -28,16 +28,25 @@ repositories {
 }
 
 dependencies {
-    compile('org.springframework.boot:spring-boot-starter-webflux')
-    compile("com.ibm.icu:icu4j:57.1")
-    compile('org.springframework.boot:spring-boot-actuator')
-    compile('org.springframework.boot:spring-boot-actuator-autoconfigure')
-    compile('io.micrometer:micrometer-registry-prometheus')
-    compile('org.eclipse.jetty:jetty-reactive-httpclient')
+    implementation('org.springframework.boot:spring-boot-starter-webflux')
+    implementation("com.ibm.icu:icu4j:57.1")
+    implementation('org.springframework.boot:spring-boot-actuator')
+    implementation('org.springframework.boot:spring-boot-actuator-autoconfigure')
+    implementation('io.micrometer:micrometer-registry-prometheus')
+    implementation('org.eclipse.jetty:jetty-reactive-httpclient')
     compileOnly('org.projectlombok:lombok')
     annotationProcessor('org.projectlombok:lombok')
 
     // https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-thymeleaf
     compile group: 'org.springframework.boot', name: 'spring-boot-starter-thymeleaf', version: '2.2.2.RELEASE'
 
+    testImplementation('org.springframework.boot:spring-boot-starter-test') {
+        exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
+    }
+    testImplementation 'io.projectreactor:reactor-test'
+    testRuntime('org.junit.jupiter:junit-jupiter-engine')
+}
+
+test {
+    useJUnitPlatform()
 }

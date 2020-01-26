@@ -13,5 +13,7 @@ include ':projects:trial',
         ':projects:springwebflux',
         ':projects:springcloudconfigserver',
         ':projects:springcloudconfigclient',
+        ':projects:springcloudcontract-producer',
+        ':projects:springcloudcontract-consumer',
         ':projects:springcloudfunction',
         ':projects:springcloudgateway'
