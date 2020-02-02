@@ -2,7 +2,9 @@ rootProject.name = 'springboot'
 
 include ':projects:trial',
         ':projects:cache',
+        ':projects:task-scheduler',
         ':projects:pushgateway',
+        ':projects:redis-reactive',
         ':projects:rsocketserver',
         ':projects:rsocketclient',
         ':projects:kafka',
