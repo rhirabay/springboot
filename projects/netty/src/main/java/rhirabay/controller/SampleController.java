@@ -3,6 +3,7 @@ package rhirabay.controller;
 import org.reactivestreams.Publisher;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.reactive.function.client.WebClient;
@@ -17,6 +18,11 @@ public class SampleController {
     @RequestMapping("/sample")
     public Publisher<String> sample() {
         return Mono.just("sample");
+    }
+
+    @RequestMapping("/{msg}")
+    public Publisher<String> msg(@PathVariable String msg) {
+        return Mono.just(msg);
     }
 
     @RequestMapping("/google")

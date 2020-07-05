@@ -1,0 +1,40 @@
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: after
+          uri: "http://localhost:8080"
+          predicates:
+            - After=2020-02-01T12:00:00+09:00
+            - Path=/after
+          filters:
+            - PrefixPath=/api
+        - id: befoer
+          uri: "http://localhost:8080"
+          predicates:
+            - Before=2020-01-01T12:00:00+09:00
+            - Path=/before
+          filters:
+            - PrefixPath=/api
+        - id: between
+          uri: "http://localhost:8080"
+          predicates:
+            - After=2020-01-01T12:00:00+09:00, Before=2020-02-01T12:00:00+09:00
+            - Path=/between
+          filters:
+            - PrefixPath=/api
+        - id: requestRatelimiter
+          uri: "http://localhost:8080"
+          predicates:
+            - Path=/ratelimiter
+          filters:
+            - PrefixPath=/api
+            - name: RequestRateLimiter
+              args:
+                redis-rate-limiter.replenishRate: 1
+                redis-rate-limiter.burstCapacity: 2
+
+logging:
+  level:
+    root: info
+#    root: debug

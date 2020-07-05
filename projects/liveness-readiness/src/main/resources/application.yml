@@ -1,0 +1,12 @@
+
+management:
+  health:
+    probes:
+      enabled: true
+  server:
+    port: 9990
+
+  endpoints:
+    web:
+      base-path: "/"
+      

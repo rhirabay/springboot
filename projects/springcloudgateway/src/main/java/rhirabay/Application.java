@@ -16,20 +16,4 @@ public class Application {
     public static void main(String[] args) {
         SpringApplication.run(Application.class);
     }
-
-    @Bean
-    public RouteLocator customRouteLocator(RouteLocatorBuilder builder) {
-        log.info("custom route locator");
-        return builder.routes()
-                .route("path_route", r ->
-                        r.path("/path")
-                                .filters(f -> f.prefixPath("/api"))
-                                .uri("http://localhost:8080"))
-                .build();
-    }
-
-    @Bean
-    public KeyResolver keyResolver() {
-        return exchange -> Mono.just("sample");
-    }
 }

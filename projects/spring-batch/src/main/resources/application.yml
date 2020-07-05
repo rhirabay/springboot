@@ -1,0 +1,28 @@
+
+spring:
+  datasource:
+    driver-class-name: "org.h2.Driver"
+    url: "jdbc:h2:./h2db/sample"
+    
+management:
+  metrics:
+    export:
+      prometheus:
+        pushgateway:
+          # Pushgatewayへのメトリクス送信を有効化（デフォルト：false）
+          enabled: true
+          # PushgatewayのURL（デフォルト：http://localhost:9091）
+          base-url: http://localhost:9091
+          # メトリクスをpushする間隔（デフォルト：1m）
+          push-rate: 30s
+          # アプリケーションの識別子
+          job: "hello-world-job"
+          # メトリクスのタグ
+          grouping-key: 
+            tag1: "value1"
+            tag2: "value2"
+          # バッチ終了時の動作
+          # -   none：なにもしない（デフォルト）
+          # -   push：終了前にメトリクスを送信する
+          # - delete：終了前にメトリクスを削除する
+          shutdown-operation: push

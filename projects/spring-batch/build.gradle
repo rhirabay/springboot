@@ -10,15 +10,15 @@ targetCompatibility = 11
 
 repositories {
     mavenCentral()
-    maven {
-        url "http://maven.springframework.org/milestone"
-    }
 }
 
 dependencies {
     compileOnly('org.projectlombok:lombok')
     annotationProcessor('org.projectlombok:lombok')
 
-    implementation 'org.springframework.boot:spring-boot-starter-web'
-    implementation 'org.springframework.boot:spring-boot-starter'
+    implementation 'org.springframework.boot:spring-boot-starter-batch'
+    implementation 'org.springframework.boot:spring-boot-starter-actuator'
+    implementation 'io.micrometer:micrometer-registry-prometheus'
+    implementation 'io.prometheus:simpleclient_pushgateway'
+    runtimeOnly 'com.h2database:h2'
 }
