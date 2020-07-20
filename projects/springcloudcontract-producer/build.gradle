@@ -8,8 +8,8 @@ buildscript {
 }
 
 plugins {
-    id 'org.springframework.boot' version '2.3.1.RELEASE'
-    id 'io.spring.dependency-management' version '1.0.9.RELEASE'
+    id 'org.springframework.boot' version "${springBootVersion}"
+    id 'io.spring.dependency-management' version "${springDependencyManagementVersion}"
     id 'java'
     id 'com.github.ben-manes.versions' version '0.28.0'
 }
@@ -24,10 +24,6 @@ targetCompatibility = 11
 repositories {
     mavenCentral()
     mavenLocal()
-}
-
-ext {
-    set('springCloudVersion', "Hoxton.SR1")
 }
 
 dependencies {
