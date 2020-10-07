@@ -2,9 +2,9 @@ subprojects {
     apply plugin: 'java'
     
     ext {
-        springBootVersion = '2.3.1.RELEASE'
-        springCloudVersion = 'Hoxton.SR6'
-        springDependencyManagementVersion = '1.0.9.RELEASE'
+        springBootVersion = '2.3.4.RELEASE'
+        springCloudVersion = 'Hoxton.SR8'
+        springDependencyManagementVersion = '1.0.10.RELEASE'
         benManesVersions = '0.29.0'
     }
 }
