@@ -16,6 +16,7 @@ repositories {
     maven {
         url "http://maven.springframework.org/milestone"
     }
+    maven { url 'https://repo.spring.io/milestone' }
 }
 
 dependencies {

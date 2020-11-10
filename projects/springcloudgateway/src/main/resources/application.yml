@@ -5,6 +5,24 @@ spring:
   cloud:
     gateway:
       routes:
+        - id: custom
+          uri: "http://localhost:8080"
+          predicates:
+            - Path=/custom/**
+          filters:
+            - PrefixPath=/api
+            - name: Custom
+              args:
+                message: "hello world"
+        - id: custom2
+          uri: "http://localhost:8080"
+          predicates:
+            - Path=/custom2/**
+          filters:
+            - PrefixPath=/api
+            - name: Custom
+              args:
+                message: "hello world 2"
         - id: ratelimit
           uri: "http://localhost:8080"
           predicates:

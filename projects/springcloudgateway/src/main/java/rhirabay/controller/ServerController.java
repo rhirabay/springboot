@@ -11,6 +11,8 @@ import org.springframework.web.bind.annotation.RestController;
 import reactor.core.publisher.Mono;
 
 import java.time.Duration;
+import java.util.List;
+import java.util.Map;
 import java.util.concurrent.atomic.AtomicInteger;
 
 @Slf4j
@@ -24,7 +26,8 @@ public class ServerController {
     public Mono<RequestSummary> api(ServerHttpRequest request) {
         var summary = RequestSummary.of(
                 request.getURI().toString(),
-                request.getMethodValue()
+                request.getMethodValue(),
+                request.getHeaders()
         );
         log.info("request summary. {}", summary);
         return Mono.just(summary);
@@ -67,5 +70,6 @@ public class ServerController {
     public static class RequestSummary {
         private String uri;
         private String method;
+        private Map<String, List<String>> headers;
     }
 }
