@@ -23,5 +23,6 @@ include ':projects:cache',
         ':projects:springcloudgateway',
         ':projects:springweb',
         ':projects:springwebflux',
+        ':projects:svelte',
         ':projects:swagger',
         ':projects:task-scheduler'

@@ -28,7 +28,6 @@ dependencies {
     testImplementation 'org.springframework.cloud:spring-cloud-starter-contract-stub-runner'
     testImplementation 'io.rest-assured:spring-web-test-client'
 
-
     testCompileOnly('org.projectlombok:lombok')
     testAnnotationProcessor('org.projectlombok:lombok')
     testRuntime('org.junit.jupiter:junit-jupiter-engine')
