@@ -5,6 +5,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.server.reactive.ServerHttpRequest;
 import org.springframework.http.server.reactive.ServerHttpResponse;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
@@ -13,6 +14,7 @@ import reactor.core.publisher.Mono;
 import java.time.Duration;
 import java.util.List;
 import java.util.Map;
+import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicInteger;
 
 @Slf4j
@@ -31,6 +33,12 @@ public class ServerController {
         );
         log.info("request summary. {}", summary);
         return Mono.just(summary);
+    }
+
+    @RequestMapping("/**/sleep/{seconds}")
+    public Mono<String> sleep(@PathVariable int seconds) throws InterruptedException {
+        TimeUnit.SECONDS.sleep(seconds);
+        return Mono.just("sleep " + seconds + "s");
     }
 
     @RequestMapping("/randomSleep/**")

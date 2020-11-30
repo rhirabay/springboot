@@ -5,6 +5,15 @@ spring:
   cloud:
     gateway:
       routes:
+        - id: csrl
+          uri: "http://localhost:8080"
+          predicates:
+            - Path=/csrl/**
+          filters:
+            - PrefixPath=/api
+            - name: CurrentSessionRateLimit
+              args:
+                limit: 1
         - id: custom
           uri: "http://localhost:8080"
           predicates:

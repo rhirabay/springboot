@@ -1,5 +1,5 @@
 plugins {
-    id 'org.springframework.boot' version "${springBootVersion}"
+    id 'org.springframework.boot' version "${springBootVersionForSpringCloud}"
     id 'io.spring.dependency-management' version "${springDependencyManagementVersion}"
     id 'java'
     id 'com.github.ben-manes.versions' version "${benManesVersions}"
@@ -28,8 +28,12 @@ dependencies {
     implementation 'org.springframework.cloud:spring-cloud-starter-circuitbreaker-reactor-resilience4j'
     implementation 'com.google.guava:guava:28.2-jre'
 
+    implementation 'it.ozimov:embedded-redis:0.7.2'
+
     compileOnly 'org.projectlombok:lombok'
     annotationProcessor 'org.projectlombok:lombok'
+
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
 }
 
 dependencyManagement {
