@@ -1,0 +1,11 @@
+### validate
+POST localhost:8080/validate/post
+Content-Type: application/json
+
+{
+  "number": 123,
+  "key": "value"
+}
+
+### test
+GET localhost:8080/api/

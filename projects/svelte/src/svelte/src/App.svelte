@@ -1,11 +1,15 @@
 <script>
-    import Form from './Form.svelte';
-    import ToDoList from "./ToDoList.svelte";
+    import Router from 'svelte-spa-router'
+    import Home from "./components/Home.svelte";
+    import Hello from "./components/Hello.svelte";
+    import Svelte from "./components/Svelte.svelte";
+
+    const routes = {
+        '/': Home,
+        '/hello': Hello,
+        '/svelte': Svelte,
+        '*': Home
+    };
 </script>
 
-<h1>Hello svelte !</h1>
-
-<!-- componentは読み込んだらそのままタグとして使える！ -->
-<Form />
-<ToDoList />
-
+<Router routes={routes} />

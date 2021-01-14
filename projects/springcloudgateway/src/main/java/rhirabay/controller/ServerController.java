@@ -6,6 +6,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.server.reactive.ServerHttpRequest;
 import org.springframework.http.server.reactive.ServerHttpResponse;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
@@ -35,7 +37,12 @@ public class ServerController {
         return Mono.just(summary);
     }
 
-    @RequestMapping("/**/sleep/{seconds}")
+    @PostMapping("/*/post")
+    public Mono<String> post(@RequestBody String body) {
+        return Mono.just(body);
+    }
+
+    @RequestMapping("/*/sleep/{seconds}")
     public Mono<String> sleep(@PathVariable int seconds) throws InterruptedException {
         TimeUnit.SECONDS.sleep(seconds);
         return Mono.just("sleep " + seconds + "s");

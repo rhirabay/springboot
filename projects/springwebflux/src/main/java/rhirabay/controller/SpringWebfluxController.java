@@ -3,6 +3,7 @@ package rhirabay.controller;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.reactivestreams.Publisher;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -18,8 +19,20 @@ import org.springframework.web.reactive.function.client.ExchangeFunction;
 import org.springframework.web.reactive.function.client.WebClient;
 import reactor.core.publisher.Mono;
 
+@RequiredArgsConstructor
 @RestController
 public class SpringWebfluxController {
+    private final WebClient proxyWebClient;
+
+    // curl
+    @GetMapping("/proxy")
+    public Publisher<String> proxy() {
+        return proxyWebClient.get()
+                .uri("http://localhost:8081")
+                .retrieve()
+                .bodyToMono(String.class);
+    }
+
     @GetMapping("/get")
     public Publisher<String> get() {
         WebClient webClient = WebClient.builder()

@@ -5,6 +5,17 @@ spring:
   cloud:
     gateway:
       routes:
+        # curl -X POST http://localhost:8080/validate/post -d '{"number":123,"key":"value"}' -H 'Content-Type: application/json' | jq
+        - id: validate
+          uri: "http://localhost:8080"
+          predicates:
+            - Path=/validate/**
+          filters:
+            - PrefixPath=/api
+            - name: ValidateRequestBody
+              args:
+                roles: |
+                  {"number":"^[0-9]+$"}
         - id: csrl
           uri: "http://localhost:8080"
           predicates:
@@ -52,6 +63,12 @@ spring:
               args:
                 name: myCircuitBreaker
                 fallbackUri: forward:/api/fallback
+        - id: default
+          uri: "http://localhost:8080"
+          predicates:
+            - Path=/**
+          filters:
+            - PrefixPath=/api
   profiles:
     active: standalone
 

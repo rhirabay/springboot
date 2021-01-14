@@ -5,3 +5,9 @@ server:
 spring:
   config:
     location: /Users/rhirabay/Downloads/application.yml
+
+org:
+  sample: "sample_value"
+
+copy:
+  sample: ${org.sample}

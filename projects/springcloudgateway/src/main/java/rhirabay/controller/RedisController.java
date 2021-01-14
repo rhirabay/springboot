@@ -6,8 +6,10 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
+import java.nio.ByteBuffer;
 import java.time.Duration;
 
 @RequestMapping("/redis")
@@ -24,6 +26,11 @@ public class RedisController {
     @GetMapping("/set/{key}/{value}")
     public Mono<Boolean> get(@PathVariable String key, @PathVariable String value) {
         return redisTemplate.opsForValue().set(key, value, Duration.ofSeconds(60));
+    }
+
+    @GetMapping("/keyCount")
+    public Flux<Long> keyCount() {
+         return redisTemplate.execute(connection -> connection.keyCommands().refcount(ByteBuffer.wrap("*".getBytes())));
     }
 
     @GetMapping("/del/{key}")
