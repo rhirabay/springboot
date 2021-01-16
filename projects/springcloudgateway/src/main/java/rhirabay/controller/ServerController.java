@@ -43,9 +43,10 @@ public class ServerController {
     }
 
     @RequestMapping("/*/sleep/{seconds}")
-    public Mono<String> sleep(@PathVariable int seconds) throws InterruptedException {
-        TimeUnit.SECONDS.sleep(seconds);
-        return Mono.just("sleep " + seconds + "s");
+    public Mono<String> sleep(@PathVariable int seconds) {
+        return Mono.just(seconds)
+                .delayElement(Duration.ofSeconds(seconds))
+                .map(s -> "sleep " + seconds + "s");
     }
 
     @RequestMapping("/randomSleep/**")
