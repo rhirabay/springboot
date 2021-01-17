@@ -10,6 +10,7 @@ import org.springframework.stereotype.Component;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
+import java.time.Duration;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
@@ -44,8 +45,8 @@ public class CurrentSessionRateLimitGatewayFilterFactory extends AbstractGateway
                         log.info("count: {}", count);
                         if (count < config.getLimit()) {
                             return redisTemplate.opsForValue().increment(key1)
-                                    //.then(Mono.defer(() -> redisTemplate.expire(key1, Duration.ofMinutes(2))))
-                                    .flatMap(bool -> chain.filter(exchange))
+                                    .doOnSuccess(l -> redisTemplate.expire(key1, Duration.ofMinutes(2)))
+                                    .flatMap(l -> chain.filter(exchange))
                                     .then(Mono.defer(() -> redisTemplate.opsForValue().decrement(key1)));
                         }
                         // それ以外は429を返却
