@@ -8,17 +8,32 @@ import javax.annotation.PreDestroy;
 
 @Component
 public class RedisAutoConfiguration {
-    private final RedisServer redisServer;
+    private static RedisServer redisServer = null;
 
+    /**
+     * constructor
+     */
     public RedisAutoConfiguration(RedisProperties redisProperties) {
-        redisServer = new RedisServer(redisProperties.getPort());
         // サーバーを起動
-        redisServer.start();
+        start(redisProperties);
+    }
+
+    public static synchronized void start(RedisProperties redisProperties) {
+        if (redisServer == null) {
+            redisServer = new RedisServer(redisProperties.getPort());
+            redisServer.start();
+        }
     }
 
     @PreDestroy
     public void preDestroy() {
-        // サーバーを停止
-        redisServer.stop();
+        stop();
+    }
+
+    public static synchronized void stop() {
+        if (redisServer != null) {
+            redisServer.stop();
+            redisServer = null;
+        }
     }
 }

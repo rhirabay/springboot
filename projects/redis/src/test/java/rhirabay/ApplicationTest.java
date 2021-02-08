@@ -11,8 +11,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 @ExtendWith(SpringExtension.class)
 @SpringBootTest(
-        webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT,
-        classes = RedisTestAutoConfiguration.class)
+        webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 class ApplicationTest {
     @Autowired
     private TestRestTemplate restTemplate;
