@@ -1,0 +1,17 @@
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "env,refresh"
+      base-path: "/"
+  server:
+    port: 9990
+
+spring:
+  config:
+    import: "optional:configserver:http://localhost:8888"
+
+  profiles:
+    active: dev
+  application:
+    name: sample

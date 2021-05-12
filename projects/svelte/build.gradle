@@ -10,6 +10,9 @@ targetCompatibility = 11
 
 test {
     useJUnitPlatform()
+    testLogging {
+        exceptionFormat 'full'
+    }
 }
 
 repositories {
@@ -28,4 +31,9 @@ dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
 
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    testImplementation('org.seleniumhq.selenium:selenium-java:3.141.+')
+    testImplementation('org.seleniumhq.selenium:selenium-chrome-driver:3.141.+')
+    testImplementation 'com.codeborne:selenide:5.20.1'
+    testCompileOnly('org.projectlombok:lombok')
+    testAnnotationProcessor('org.projectlombok:lombok')
 }

@@ -19,11 +19,15 @@ repositories {
 dependencies {
     compileOnly('org.projectlombok:lombok')
     annotationProcessor('org.projectlombok:lombok')
-    
-    compile group: 'org.springframework.boot', name: 'spring-boot-starter-web', version: '2.2.1.RELEASE'
-    compile('org.springframework.boot:spring-boot-actuator')
-    compile('org.springframework.boot:spring-boot-actuator-autoconfigure')
-    compile('io.micrometer:micrometer-registry-prometheus')
+
+    implementation group: 'org.springframework.boot', name: 'spring-boot-starter-web', version: '2.2.1.RELEASE'
+    implementation('org.springframework.boot:spring-boot-actuator')
+    implementation('org.springframework.boot:spring-boot-actuator-autoconfigure')
+    implementation('io.micrometer:micrometer-registry-prometheus')
+    implementation('org.apache.httpcomponents:httpclient:4.5.13')
+    implementation 'org.springframework:spring-webflux:5.3.4'
+    implementation 'io.projectreactor.netty:reactor-netty:1.0.4'
+
     compileOnly('org.projectlombok:lombok')
     annotationProcessor('org.projectlombok:lombok')
 }

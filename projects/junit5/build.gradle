@@ -1,0 +1,44 @@
+plugins {
+    id 'org.springframework.boot' version "${springBootVersion}"
+    id 'io.spring.dependency-management' version "${springDependencyManagementVersion}"
+    id 'java'
+    id 'com.github.ben-manes.versions' version "${benManesVersions}"
+    id 'org.gradle.test-retry' version '1.2.1'
+}
+
+sourceCompatibility = 11
+targetCompatibility = 11
+
+test {
+    useJUnitPlatform()
+    retry {
+        // リトライが発生した場合に、ビルトを失敗させるかどうか（リトライで成功してもビルド失敗）
+        failOnPassedAfterRetry = true
+        // この値よりも多くのテストが失敗した場合は、リトライを実行しない（一時的ではない別の問題があると判断）
+        maxFailures = 3
+        // 最大リトライ回数
+        maxRetries = 5
+    }
+    testLogging {
+        events 'passed', 'skipped', 'failed'
+    }
+}
+
+repositories {
+    mavenCentral()
+    maven {
+        url "http://maven.springframework.org/milestone"
+    }
+    maven { url 'https://repo.spring.io/milestone' }
+}
+
+dependencies {
+    compileOnly('org.projectlombok:lombok')
+    annotationProcessor('org.projectlombok:lombok')
+
+    testCompileOnly('org.projectlombok:lombok')
+    testAnnotationProcessor('org.projectlombok:lombok')
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation 'org.junit-pioneer:junit-pioneer:1.4.1'
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+}
