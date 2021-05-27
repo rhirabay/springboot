@@ -72,6 +72,7 @@ public class ServerController {
         }
         response.setStatusCode(status);
         log.info("id: {}, cnt: {}, status: {}", id, i.get(), status);
+//        return "random status";
         return;
     }
 

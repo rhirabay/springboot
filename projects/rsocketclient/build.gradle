@@ -11,16 +11,15 @@ sourceCompatibility = '11'
 
 repositories {
     mavenCentral()
-    maven { url 'https://repo.spring.io/milestone' }
 }
 
 dependencies {
-    compile 'org.springframework.boot:spring-boot-starter-rsocket'
-    compile('org.springframework.boot:spring-boot-starter-webflux')
+    implementation 'org.springframework.boot:spring-boot-starter-rsocket'
+    implementation('org.springframework.boot:spring-boot-starter-webflux')
 
     // To reconnect when server side deploy or restart.
     // https://mvnrepository.com/artifact/io.rsocket/rsocket-load-balancer
-    compile group: 'io.rsocket', name: 'rsocket-load-balancer', version: '1.0.0-RC5'
+    implementation group: 'io.rsocket', name: 'rsocket-load-balancer', version: '1.0.0-RC5'
 
 
     compileOnly('org.projectlombok:lombok')

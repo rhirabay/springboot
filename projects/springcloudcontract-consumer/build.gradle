@@ -13,7 +13,6 @@ targetCompatibility = 11
 repositories {
     mavenCentral()
     mavenLocal()
-    maven { url 'https://repo.spring.io/milestone' }
 }
 
 dependencies {
@@ -30,7 +29,7 @@ dependencies {
 
     testCompileOnly('org.projectlombok:lombok')
     testAnnotationProcessor('org.projectlombok:lombok')
-    testRuntime('org.junit.jupiter:junit-jupiter-engine')
+    testRuntimeOnly('org.junit.jupiter:junit-jupiter-engine')
 }
 
 dependencyManagement {

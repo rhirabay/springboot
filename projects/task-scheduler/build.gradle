@@ -10,18 +10,14 @@ targetCompatibility = 11
 
 repositories {
     mavenCentral()
-    maven {
-        url "http://maven.springframework.org/milestone"
-    }
-    maven { url 'https://repo.spring.io/milestone' }
 }
 
 dependencies {
     compileOnly('org.projectlombok:lombok')
     annotationProcessor('org.projectlombok:lombok')
-    
-    compile group: 'org.springframework.boot', name: 'spring-boot-starter-web', version: '2.2.1.RELEASE'
-    compile group: 'org.springframework.boot', name: 'spring-boot-starter', version: '2.2.1.RELEASE'
+
+    implementation group: 'org.springframework.boot', name: 'spring-boot-starter-web', version: '2.2.1.RELEASE'
+    implementation group: 'org.springframework.boot', name: 'spring-boot-starter', version: '2.2.1.RELEASE'
     compileOnly('org.projectlombok:lombok')
     annotationProcessor('org.projectlombok:lombok')
 }

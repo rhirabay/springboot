@@ -10,10 +10,6 @@ targetCompatibility = 11
 
 repositories {
     mavenCentral()
-    maven {
-        url "http://maven.springframework.org/milestone"
-    }
-    maven { url 'https://repo.spring.io/milestone' }
 }
 
 dependencies {

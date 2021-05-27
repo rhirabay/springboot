@@ -2,12 +2,21 @@
 server:
   port: 8080
 
-spring:
-  config:
-    location: /Users/rhirabay/Downloads/application.yml
+#spring:
+#  config:
+#    location: /Users/rhirabay/Downloads/application.yml
 
 org:
   sample: "sample_value"
 
 copy:
   sample: ${org.sample}
+
+management:
+  endpoints:
+    web:
+      base-path: "/"
+  server:
+    port: 9990
+    servlet:
+      context-path: "ctx"

@@ -1,6 +1,5 @@
 plugins {
-    //id 'org.springframework.boot' version "${springBootVersion}"
-    id 'org.springframework.boot' version "2.4.0"
+    id 'org.springframework.boot' version "${springBootVersion}"
     id 'io.spring.dependency-management' version "${springDependencyManagementVersion}"
     id 'java'
     id 'com.github.ben-manes.versions' version "${benManesVersions}"
@@ -15,17 +14,30 @@ test {
 
 repositories {
     mavenCentral()
-    maven {
-        url "http://maven.springframework.org/milestone"
-    }
-    maven { url 'https://repo.spring.io/milestone' }
+}
+
+archivesBaseName = 'sample'
+
+bootJar {
+    archiveClassifier = 'boot'
+}
+
+jar {
+    enabled = false
 }
 
 dependencies {
     compileOnly('org.projectlombok:lombok')
     annotationProcessor('org.projectlombok:lombok')
+    testCompileOnly('org.projectlombok:lombok')
+    testAnnotationProcessor('org.projectlombok:lombok')
+
+    implementation('org.springframework.boot:spring-boot-actuator')
+    implementation('org.springframework.boot:spring-boot-actuator-autoconfigure')
 
     implementation 'org.springframework.boot:spring-boot-starter-web'
+    testRuntimeOnly("org.springframework.boot:spring-boot-properties-migrator")
+    testCompileOnly("org.springframework.boot:spring-boot-properties-migrator")
 
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
 }

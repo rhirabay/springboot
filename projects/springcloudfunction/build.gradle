@@ -17,12 +17,11 @@ configurations {
 
 repositories {
     mavenCentral()
-    maven { url 'https://repo.spring.io/milestone' }
 }
 
 dependencies {
-    compile('org.springframework.cloud:spring-cloud-starter-function-webflux')
-    compile('org.springframework.cloud:spring-cloud-function-compiler')
+    implementation('org.springframework.cloud:spring-cloud-starter-function-webflux')
+//    implementation('org.springframework.cloud:spring-cloud-function-compiler')
     compileOnly 'org.projectlombok:lombok'
     annotationProcessor 'org.projectlombok:lombok'
     testImplementation('org.springframework.boot:spring-boot-starter-test') {

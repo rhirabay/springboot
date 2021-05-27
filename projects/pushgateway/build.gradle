@@ -5,5 +5,5 @@ repositories {
 }
 
 dependencies {
-    compile('io.prometheus:simpleclient_pushgateway:0.6.0')
+    implementation('io.prometheus:simpleclient_pushgateway:0.6.0')
 }

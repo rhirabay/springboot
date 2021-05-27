@@ -7,10 +7,6 @@ plugins {
 
 repositories {
     mavenCentral()
-    maven {
-        url "http://maven.springframework.org/milestone"
-    }
-    maven { url 'https://repo.spring.io/milestone' }
 }
 
 dependencies {
@@ -19,5 +15,5 @@ dependencies {
     annotationProcessor('org.projectlombok:lombok')
 
     // https://mvnrepository.com/artifact/org.apache.kafka/kafka
-    compile group: 'org.apache.kafka', name: 'kafka_2.12', version: '2.5.0'
+    implementation group: 'org.apache.kafka', name: 'kafka_2.12', version: '2.5.0'
 }
