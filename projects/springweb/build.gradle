@@ -1,5 +1,5 @@
 plugins {
-    id 'org.springframework.boot' version "${springBootVersion}"
+    id 'org.springframework.boot' version "${springBootNewestVersion}"
     id 'io.spring.dependency-management' version "${springDependencyManagementVersion}"
     id 'java'
     id 'com.github.ben-manes.versions' version "${benManesVersions}"
@@ -16,14 +16,20 @@ dependencies {
     compileOnly('org.projectlombok:lombok')
     annotationProcessor('org.projectlombok:lombok')
 
-    implementation group: 'org.springframework.boot', name: 'spring-boot-starter-web', version: '2.2.1.RELEASE'
+    implementation 'org.springframework.boot:spring-boot-starter-web'
     implementation('org.springframework.boot:spring-boot-actuator')
     implementation('org.springframework.boot:spring-boot-actuator-autoconfigure')
     implementation('io.micrometer:micrometer-registry-prometheus')
     implementation('org.apache.httpcomponents:httpclient:4.5.13')
-    implementation 'org.springframework:spring-webflux:5.3.4'
-    implementation 'io.projectreactor.netty:reactor-netty:1.0.4'
+
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    testImplementation 'org.springframework:spring-webflux:5.3.4'
+    testImplementation 'io.projectreactor.netty:reactor-netty:1.0.4'
 
     compileOnly('org.projectlombok:lombok')
     annotationProcessor('org.projectlombok:lombok')
+}
+
+test {
+    useJUnitPlatform()
 }
