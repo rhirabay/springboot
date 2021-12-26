@@ -26,7 +26,13 @@ dependencies {
     compileOnly('org.projectlombok:lombok')
     annotationProcessor('org.projectlombok:lombok')
 
-    implementation 'org.springframework.boot:spring-boot-starter-web'
+    // https://mvnrepository.com/artifact/org.springframework.plugin/spring-plugin-core
+    implementation 'org.springframework.plugin:spring-plugin-core:2.0.0.RELEASE'
+    // https://mvnrepository.com/artifact/org.springframework.plugin/spring-plugin-metadata
+    implementation 'org.springframework.plugin:spring-plugin-metadata:2.0.0.RELEASE'
+
+
+    implementation 'org.springframework.boot:spring-boot-starter'
 
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
 }

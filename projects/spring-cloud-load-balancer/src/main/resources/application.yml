@@ -1,0 +1,8 @@
+
+spring:
+  cloud:
+    loadbalancer:
+      clients:
+        myclient:
+          health-check:
+            interval: 30s

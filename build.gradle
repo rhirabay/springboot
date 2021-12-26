@@ -2,10 +2,10 @@ subprojects {
     apply plugin: 'java'
     
     ext {
-        springBootNewestVersion = '2.6.0'
-        springBootVersion = '2.5.0'
-        springBootVersionForSpringCloud = '2.5.0'
-        springCloudVersion = '2020.0.1'
+        springBootNewestVersion = '2.6.1'
+        springBootVersion = '2.6.1'
+        springBootVersionForSpringCloud = '2.6.1'
+        springCloudVersion = '2021.0.0'
         springDependencyManagementVersion = '1.0.11.RELEASE'
         benManesVersions = '0.36.0'
     }
