@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE logback>
+<configuration>
+    <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+        <filter class="ch.qos.logback.core.filter.EvaluatorFilter">
+            <evaluator>
+                <matcher>
+                    <name>excludeMatcher</name>
+                    <regex>(hoge|fuga)</regex>
+                </matcher>
+                <expression>!excludeMatcher.matches(formattedMessage)</expression>
+            </evaluator>
+            <OnMatch>NEUTRAL</OnMatch>
+            <OnMismatch>DENY</OnMismatch>
+        </filter>
+
+        <encoder class="ch.qos.logback.core.encoder.LayoutWrappingEncoder">
+            <layout class="rhirabay.MaskingPatternLayout">
+                <pattern>time:%d{yyyy-MM-dd'T'HH:mm:ss} level:%level message:%m\n</pattern>
+            </layout>
+        </encoder>
+    </appender>
+
+    <root>
+        <appender-ref ref="CONSOLE" />
+    </root>
+</configuration>
