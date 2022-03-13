@@ -1,20 +1,22 @@
 package rhirabay;
 
-import org.junit.jupiter.api.Disabled;
-import org.junit.jupiter.api.Test;
+import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.parallel.Execution;
 import org.junit.jupiter.api.parallel.ExecutionMode;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.ValueSource;
 
 import java.util.concurrent.TimeUnit;
 
-import static org.junit.jupiter.api.Assertions.*;
-
-@Disabled
-@Execution(ExecutionMode.CONCURRENT)
+@Slf4j
+//@Execution(ExecutionMode.CONCURRENT)
 class ApplicationTest {
-    @Test
-    void test() throws Exception {
 
+    @Execution(ExecutionMode.CONCURRENT)
+    @ParameterizedTest
+    @ValueSource(ints = {1,2,3,4,5,6,7,8,9,10})
+    void test(int num) throws Exception {
+        log.info("test1. thread name: {}, num: {}", Thread.currentThread().getName(), num);
         TimeUnit.SECONDS.sleep(3);
     }
 }

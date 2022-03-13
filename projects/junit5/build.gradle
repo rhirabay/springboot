@@ -11,14 +11,14 @@ targetCompatibility = 11
 
 test {
     useJUnitPlatform()
-    retry {
-        // リトライが発生した場合に、ビルトを失敗させるかどうか（リトライで成功してもビルド失敗）
-        failOnPassedAfterRetry = true
-        // この値よりも多くのテストが失敗した場合は、リトライを実行しない（一時的ではない別の問題があると判断）
-        maxFailures = 3
-        // 最大リトライ回数
-        maxRetries = 5
-    }
+//    retry {
+//        // リトライが発生した場合に、ビルトを失敗させるかどうか（リトライで成功してもビルド失敗）
+//        failOnPassedAfterRetry = true
+//        // この値よりも多くのテストが失敗した場合は、リトライを実行しない（一時的ではない別の問題があると判断）
+//        maxFailures = 3
+//        // 最大リトライ回数
+//        maxRetries = 5
+//    }
     testLogging {
         events 'passed', 'skipped', 'failed'
     }
@@ -37,4 +37,7 @@ dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-web'
     implementation 'org.junit-pioneer:junit-pioneer:1.4.1'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
+
+    // staticメソッドやコンストラクタのMock化に必要
+    testImplementation 'org.mockito:mockito-inline'
 }
